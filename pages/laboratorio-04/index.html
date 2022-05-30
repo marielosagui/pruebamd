@@ -1,0 +1,87 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Consultas Simples con Select y Joins</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="laboratorio-04"
+                  title="Consultas Simples con Select y Joins"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Consultas SQL (SELECT)" duration="0">
+        <p> Duration: 0:1:00  La sentencia SELECT es una sentencia DML (Lenguaje de Manipulación de Datos) utilizada para seleccionar datos de una base de datos, es también conocida como consulta de selección.  </p>
+<h2 is-upgraded><strong>ESTRUCTURA DEL SELECT</strong></h2>
+<p> La sintaxis básica de una consulta de selección es la siguiente:  <br><code>SELECT [CAMPOS] FROM [TABLA] [WHERE [CONDITION]];</code><br>  En donde [CAMPOS] son los atributos o columnas que se desean extraer de la [TABLA] que se especifique y WHERE es opcional, esta condición será utilizada más adelante. Consideremos la siguiente base de datos:  <img alt="test" src="img\\a6fc96fdf58658f0.png">  Si se quiere extraer solamente el nombre y apellido de la tabla USUARIO se hace de la siguiente manera:  <br><code>SELECT nombre, apellido FROM usuario;</code><br>  Dando como resultado:  <img alt="test" src="img\\dc133551b5e79ebc.png">  Si se desea extraer todos los campos de una tabla se utiliza * de la siguiente manera:  <br><code>SELECT * FROM usuario;</code><br>  Esta instrucción devolverá todos los registros y todos los campos que la tabla posea.  </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="ALIAS (AS)" duration="0">
+        <p> Duration: 0:3:00  En muchos casos es necesario asignar un nombre a alguna columna o tabla, cuando se le asigna un alias a una columna el nombre de la columna cambia en el resultado, mientras que cuando se usa el alias en la tabla este sirve para identificar campos que tengan el mismo nombre en distintas tablas. Por ejemplo se desea extraer todos los nombres de la tabla AUTOR y todos los nombres de la tabla USUARIO, pero que al mostrarse se llamen Nombres de Autores y Nombres de Usuarios; ¿Qué problema habría si se quita el alias a las tablas?  <br><code>SELECT u.nombre as "Nombre Usuario", a.nombre as "Nombre Autor" FROM usuario as u, autor as a;</code><br>  ¿Por qué el resultado de esta consulta está lleno de duplicidad?  </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="CLAUSULA CONDICIONAL WHERE" duration="0">
+        <p> Duration 0:04:00  Esta cláusula devuelve un subconjunto de los registros de una tabla que cumplan con dicha condición.  <br><code>SELECT * FROM libro WHERE npaginas = 300;</code><br>  Esta consulta devuelve los registros de la tabla LIBRO que cumplan la condición de tener 300 páginas.  Otros operadores que se pueden usar en la cláusula WHERE:  <img alt="test" src="img\\6f54c80062bf2a5.png">  Además de estos operadores lógicos se disponen otros adicionales:  </p>
+<h2 is-upgraded><strong>BETWEEN</strong></h2>
+<p> Indica un intervalo de valores:  <br><code>SELECT * FROM libro WHERE npaginas BETWEEN 1 AND 500;</code><br>  Esta instrucción devuelve los registros de la tabla LIBRO que tengan entre 1 a 500 páginas.  </p>
+<h2 is-upgraded><strong>LIKE</strong></h2>
+<p> Sirve para comparar patrones de texto:  <br><code>SELECT * FROM autor WHERE nombre LIKE 'l%';</code><br>  Devuelve todos los autores cuyo nombre comience con &#34;L&#34;.  Lista de patrones de texto: <a href="https://www.w3schools.com/sql/sql_wildcards.asp" target="_blank">https://www.w3schools.com/sql/sql_wildcards.asp</a>  </p>
+<h2 is-upgraded><strong>IN</strong></h2>
+<p> Sirve para comparar con una lista de valores fijos:  &#34;` </p>
+<pre><code>SELECT num, calle, direccion
+FROM direccion 
+WHERE ciudad IN (&#39;Sevilla&#39;,&#39;Cordoba&#39;,&#39;Huelva&#39;,&#39;Cádiz&#39;);
+</code></pre>
+<p>&#34;`  </p>
+<h2 is-upgraded><strong>IS NULL / IS NOT NULL</strong></h2>
+<p> Devuelve los registros que sean o no sean nulos. Este operador lógico se verá más adelante cuando se trabajen los JOINS.  </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="OPERADORES LÓGICOS" duration="0">
+        <p> Duration: 0:04:00  Sirven para componer expresiones y filtrar aún más los registros de una tabla.  <img alt="test" src="img\\c38481d4245a4efd.png">  &#34;` </p>
+<pre><code>SELECT * FROM libro WHERE npaginas &gt; 500 AND titulo LIKE &#39;a%&#39;;
+</code></pre>
+<p>&#34;`  Esta consulta devuelve los registros de la tabla libro que tengan más de 550 páginas y el título comience con la letra a.  </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Sobre los autores de esta guía práctica" duration="0">
+        <p> Autores:     <strong>Versión 1:</strong> Emerson Gamaliel Nolasco (00215316@uca.edu.sv), Kevin Enmanuel Velásquez (00018616@uca.edu.sv)   <strong>Versión 2:</strong> Fátima Adriana Renderos (00064018@uca.edu.sv)     <strong>Versión 3:</strong> Karla Marielos Aguilar Figueroa (00078913@uca.edu.sv), Alejandra Mabel Marroquin Cáceres(00007415@uca.edu.sv)   <strong>Responsables:</strong> Erick Varela Guzmán (evarela@uca.edu.sv), Douglas Hernández Torres (dohernandez@uca.edu.sv), Correspondencia: evarela@uca.edu.sv  Departamento de Electrónica e Informática, Universidad Centroamericana José Simeón Cañas, La Libertad, El Salvador.  Versión de este documento: Versión 3, 2022.  <img alt="test" src="img\\2d61b47ed7775e46.jpg"> This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. </p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

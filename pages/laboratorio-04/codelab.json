@@ -1,0 +1,28 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-05-30T08:18:34-06:00",
+  "id": "laboratorio-04",
+  "duration": 0,
+  "title": "Consultas Simples con Select y Joins",
+  "summary": "Consultas Simples con Select y Joins",
+  "source": "lab04.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "select",
+    "as",
+    "where",
+    "operadores logicos",
+    "consultas con joins"
+  ],
+  "tags": [
+    "guide",
+    "web"
+  ],
+  "url": "laboratorio-04"
+}

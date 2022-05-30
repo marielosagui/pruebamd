@@ -7,11 +7,10 @@ environments: Web
 status: Published
 feedback link: https://github.com/01-2022-Bases-de-datos-UCA/Codelabs/issues
 
-
 # Consultas Simples con Select y Joins
 
-
 ## Consultas SQL (SELECT)
+
 Duration: 0:1:00
 
 La sentencia SELECT es una sentencia DML (Lenguaje de Manipulación de Datos)
@@ -21,6 +20,7 @@ consulta de selección.
 ### **ESTRUCTURA DEL SELECT**
 
 La sintaxis básica de una consulta de selección es la siguiente:
+
 ```
 SELECT [CAMPOS] FROM [TABLA] [WHERE [CONDITION]];
 ```
@@ -47,9 +47,11 @@ Si se desea extraer todos los campos de una tabla se utiliza * de la siguiente m
 ```
 SELECT * FROM usuario;
 ```
+
 Esta instrucción devolverá todos los registros y todos los campos que la tabla posea.
 
 ## ALIAS (AS)
+
 Duration: 0:3:00
 
 En muchos casos es necesario asignar un nombre a alguna columna o tabla, cuando se
@@ -67,6 +69,7 @@ SELECT u.nombre as "Nombre Usuario", a.nombre as "Nombre Autor" FROM usuario as 
 ¿Por qué el resultado de esta consulta está lleno de duplicidad?
 
 ## CLAUSULA CONDICIONAL WHERE
+
 Duration 0:04:00
 
 Esta cláusula devuelve un subconjunto de los registros de una tabla que cumplan con
@@ -92,6 +95,7 @@ Indica un intervalo de valores:
 ```
 SELECT * FROM libro WHERE npaginas BETWEEN 1 AND 500;
 ```
+
 Esta instrucción devuelve los registros de la tabla LIBRO que tengan entre 1 a 500
 páginas.
 
@@ -102,11 +106,13 @@ Sirve para comparar patrones de texto:
 ```
 SELECT * FROM autor WHERE nombre LIKE 'l%';
 ```
+
 Devuelve todos los autores cuyo nombre comience con “L”.
 
-Lista de patrones de texto: https://www.w3schools.com/sql/sql_wildcards.asp
+Lista de patrones de texto: <https://www.w3schools.com/sql/sql_wildcards.asp>
 
 ### **IN**
+
 Sirve para comparar con una lista de valores fijos:
 
 ```
@@ -120,8 +126,8 @@ Sirve para comparar con una lista de valores fijos:
 Devuelve los registros que sean o no sean nulos. Este operador lógico se verá más
 adelante cuando se trabajen los JOINS.
 
-
 ## OPERADORES LÓGICOS
+
 Duration: 0:04:00
 
 Sirven para componer expresiones y filtrar aún más los registros de una tabla.
@@ -135,23 +141,21 @@ Sirven para componer expresiones y filtrar aún más los registros de una tabla.
 Esta consulta devuelve los registros de la tabla libro que tengan más de 550 páginas y
 el título comience con la letra a.
 
-
-
 ## Sobre los autores de esta guía práctica
 
 Autores:  
   **Versión 1:**
-Emerson Gamaliel Nolasco (00215316@uca.edu.sv), Kevin Enmanuel Velásquez (00018616@uca.edu.sv)      
-  **Versión 2:** 
+Emerson Gamaliel Nolasco (00215316@uca.edu.sv), Kevin Enmanuel Velásquez (00018616@uca.edu.sv)
+  **Versión 2:**
 Fátima Adriana Renderos (00064018@uca.edu.sv)  
   **Versión 3:**
-Karla Marielos Aguilar Figueroa (00078913@uca.edu.sv), Alejandra Mabel Marroquin Cáceres(00007415@uca.edu.sv)    
+Karla Marielos Aguilar Figueroa (00078913@uca.edu.sv), Alejandra Mabel Marroquin Cáceres(00007415@uca.edu.sv)
   **Responsables:**
-Erick Varela Guzmán (evarela@uca.edu.sv), Douglas Hernández Torres (dohernandez@uca.edu.sv), 
+Erick Varela Guzmán (evarela@uca.edu.sv), Douglas Hernández Torres (dohernandez@uca.edu.sv),
 Correspondencia: evarela@uca.edu.sv
 
 Departamento de Electrónica e Informática, Universidad Centroamericana José Simeón Cañas, La Libertad, El Salvador.
 
 Versión de este documento: Versión 3, 2022.
 
-![test](./img/Laboratorio03/license.jpg) This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+![test](./img/Laboratorio04/license.jpg) This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
